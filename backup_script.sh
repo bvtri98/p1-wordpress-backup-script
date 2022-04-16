@@ -5,6 +5,9 @@ timestamp() {
   date +"%d%m%Y_%H%M%S"
 }
 
+# create new folder for all file
+mkdir backup
+
 # compress source code wordpress
 echo "########################## Zipping file #########################"
 zip -r backup/wordpress_$(timestamp).zip /var/www/html/wordpress
