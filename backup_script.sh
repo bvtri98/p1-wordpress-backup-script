@@ -4,7 +4,7 @@ timestamp() {
   date +"%H%M%S_%d%m%Y"
 }
 
-zip -r wordpress_$(timestamp).zip /var/www/html/wordpress
+sudo zip -r wordpress_$(timestamp).zip /var/www/html/wordpress
 
 mysql -uroot -p'1890' wordpress_db > wordpress_$(timestamp).sql
 
