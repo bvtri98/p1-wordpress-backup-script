@@ -1,7 +1,7 @@
 #!/bin/sh
 
 timestamp() {
-  date +"%H:%M:%S_%d/%m/%Y"
+  date +"%H%M%S_%d%m%Y"
 }
 
 zip -r wordpress_$(timestamp).zip /var/www/html/wordpress
