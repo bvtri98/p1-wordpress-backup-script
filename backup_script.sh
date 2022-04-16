@@ -13,7 +13,7 @@ echo "########################## Zipping file #########################"
 zip -r wp_$(timestamp)/wordpress.zip /var/www/html/wordpress
 #export sql database
 echo "########################## Export sql file #########################"
-mysql -uroot -p'1890' wordpress_db > wp_$(timestamp)/wordpress_db.sql
+mysqldump -uroot -p'1890' wordpress_db > wp_$(timestamp)/wordpress_db.sql
 
 
 # git flow
