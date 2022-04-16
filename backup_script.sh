@@ -15,9 +15,12 @@ zip -r backup/wordpress_$(timestamp).zip /var/www/html/wordpress
 echo "########################## Export sql file #########################"
 mysqldump -uroot -p'1890' wordpress_db > backup/wordpress_db_$(timestamp).sql
 
+echo "Done."
 
 # git flow
 echo "########################## Git automation #########################"
 git add -A
 git commit -am "Regular auto-commit $(timestamp)"
 git push origin master
+
+echo "Finish."
