@@ -1,13 +1,23 @@
 #!/bin/sh
 
+# set timestamp to aware the time
 timestamp() {
-  date +"%H%M%S_%d%m%Y"
+  date +"%d%m%Y_%H%M%S"
 }
 
-sudo zip -r wordpress_$(timestamp).zip /var/www/html/wordpress
+# create folder include all file
+mkdir wp_$(timestamp)
 
-mysql -uroot -p'1890' wordpress_db > wordpress_$(timestamp).sql
+# compress source code wordpress
+echo "########################## Zipping file #########################"
+zip -r wp_$(timestamp)/wordpress.zip /var/www/html/wordpress
+#export sql database
+echo "########################## Export sql file #########################"
+mysql -uroot -p'1890' wordpress_db > wp_$(timestamp)/wordpress_db.sql
 
-git add --all
+
+# git flow
+echo "########################## Git automation #########################"
+git add -A
 git commit -am "Regular auto-commit $(timestamp)"
 git push origin master
